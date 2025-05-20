@@ -26,13 +26,18 @@ const Cinema = () => {
     <>
         <header>
             <div>
+                <h1>BOOLFIX</h1>
                 <form action="">
                     <div>
-                        <label htmlFor=""></label>
-                        <input type="text" />
+                        <input 
+                            type="text"
+                            placeholder="Cerca un film..."
+                            value={query}
+                            onChange={(e) => setQuery(e.target.value)}
+                        />
                     </div>
                     <div>
-                        <button>
+                        <button onClick={searchMovies}>
                             Cerca
                         </button>
                     </div>
@@ -40,7 +45,16 @@ const Cinema = () => {
             </div>
         </header>
         <main>
-            
+            <div>
+                {movies.map((movie) => (
+                    <div>
+                        <h2>{movie.title}</h2>
+                        <p>Titolo originale: {movie.original_title}</p>
+                        <p>Lingua originale: {movie.original_language}</p>
+                        <p>Voto: {movie.vote_average}</p>
+                    </div>
+                ))}
+            </div>
         </main>
     </>
   )
