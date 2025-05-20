@@ -35,7 +35,7 @@ const Cinema = () => {
             es: "fi fi-es",
         };
 
-        return flags[languageMovies] || "Lingua non trovata";
+        return flags[languageMovies];
     };
 
     // useEffect(() => {
@@ -70,9 +70,8 @@ const Cinema = () => {
                     <div key={movie.id}>
                         <h2>{movie.title}</h2>
                         <p>Titolo originale: {movie.original_title}</p>
-                        <p>Lingua originale: {movie.original_language}</p>
+                        <p className={showFlags(movie.original_language)}></p>
                         <p>Voto: {movie.vote_average}</p>
-                        <p className="fi fi-it"></p>
                     </div>
                 ))}
             </div>
