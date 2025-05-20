@@ -9,7 +9,7 @@ const Cinema = () => {
 
     const myApi = "322517280b230da9724d683b9cf1693e";
     
-    const searchMovies = () => {
+    const searchMovies = (e) => {
         e.preventDefault();
 
         axios.get('https://api.themoviedb.org/3/search/movie',
@@ -19,9 +19,13 @@ const Cinema = () => {
                     query: query,
                 },
             }).then((resp) =>{
-                setMovies(resp.data);
+                setMovies(resp.data.results);
             });
         };
+
+    // useEffect(() => {
+    //     searchMovies();
+    // }, []);
 
   return (
     <>
@@ -48,7 +52,7 @@ const Cinema = () => {
         <main>
             <div>
                 {movies.map((movie) => (
-                    <div>
+                    <div key={movie.id}>
                         <h2>{movie.title}</h2>
                         <p>Titolo originale: {movie.original_title}</p>
                         <p>Lingua originale: {movie.original_language}</p>
