@@ -9,6 +9,7 @@ const Cinema = () => {
     const [query, setQuery] = useState("");
 
     const myApi = "322517280b230da9724d683b9cf1693e";
+    const imgUrl = "https://image.tmdb.org/t/p/w342"
 
     const searchMedia = (e) => {
         if (query.trim() === "") {
@@ -82,6 +83,7 @@ const Cinema = () => {
                 <div>
                     {movies.map((movie) => (
                         <div key={movie.id}>
+                            <img src={`${imgUrl}${movie.poster_path}`} alt={movie.title} />
                             <h2>{movie.title}</h2>
                             <p>Titolo originale: {movie.original_title}</p>
                             <p>
@@ -99,6 +101,7 @@ const Cinema = () => {
                 <div>
                     {series.map((serie) => (
                         <div key={serie.id}>
+                            <img src={`${imgUrl}${serie.poster_path}`} alt={serie.title} />
                             <h2>{serie.name}</h2>
                             <p>Titolo originale: {serie.original_name}</p>
                             <p>
