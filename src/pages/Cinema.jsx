@@ -65,7 +65,7 @@ const Cinema = () => {
                         <div>
                             <input
                                 type="text"
-                                placeholder="Cerca un film..."
+                                placeholder="Cerca un film o una serie..."
                                 value={query}
                                 onChange={(e) => setQuery(e.target.value)}
                             />
@@ -85,6 +85,7 @@ const Cinema = () => {
                             <h2>{movie.title}</h2>
                             <p>Titolo originale: {movie.original_title}</p>
                             <p>
+                                Lingua originale:
                                 {showFlags(movie.original_language).includes("fi") ? (
                                     <span className={showFlags(movie.original_language)}></span>
                                 ) : (
@@ -92,6 +93,23 @@ const Cinema = () => {
                                 )}
                             </p>
                             <p>Voto: {movie.vote_average}</p>
+                        </div>
+                    ))}
+                </div>
+                <div>
+                    {series.map((serie) => (
+                        <div key={serie.id}>
+                            <h2>{serie.name}</h2>
+                            <p>Titolo originale: {serie.original_name}</p>
+                            <p>
+                                Lingua originale:
+                                {showFlags(serie.original_language).includes("fi") ? (
+                                    <span className={showFlags(serie.original_language)}></span>
+                                ) : (
+                                    <span>{serie.original_language}</span>
+                                )}
+                            </p>
+                            <p>Voto: {serie.vote_average}</p>
                         </div>
                     ))}
                 </div>
