@@ -34,8 +34,8 @@ const Cinema = () => {
             jp: "fi fi-jp",
             es: "fi fi-es",
         };
-
-        return flags[languageMovies];
+        
+        return flags[languageMovies] ? flags[languageMovies] : languageMovies;
     };
 
     // useEffect(() => {
