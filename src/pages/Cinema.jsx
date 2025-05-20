@@ -26,6 +26,17 @@ const Cinema = () => {
                 setMovies(resp.data.results);
             });
         };
+    
+    const showFlags = (languageMovies) => {
+        const flags = {
+            it: "fi fi-it",
+            en: "fi fi-us",
+            jp: "fi fi-jp",
+            es: "fi fi-es",
+        };
+
+        return flags[languageMovies] || "Lingua non trovata";
+    };
 
     // useEffect(() => {
     //     searchMovies();
@@ -61,6 +72,7 @@ const Cinema = () => {
                         <p>Titolo originale: {movie.original_title}</p>
                         <p>Lingua originale: {movie.original_language}</p>
                         <p>Voto: {movie.vote_average}</p>
+                        <p className="fi fi-it"></p>
                     </div>
                 ))}
             </div>
