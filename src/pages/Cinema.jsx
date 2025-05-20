@@ -10,7 +10,7 @@ const Cinema = () => {
 
     const myApi = "322517280b230da9724d683b9cf1693e";
 
-    const searchMovies = (e) => {
+    const searchMedia = (e) => {
         if (query.trim() === "") {
             return;
         };
@@ -53,7 +53,7 @@ const Cinema = () => {
     };
 
     // useEffect(() => {
-    //     searchMovies();
+    //     searchMedia();
     // }, []);
 
     return (
@@ -71,7 +71,7 @@ const Cinema = () => {
                             />
                         </div>
                         <div>
-                            <button onClick={searchMovies}>
+                            <button onClick={searchMedia}>
                                 Cerca
                             </button>
                         </div>
