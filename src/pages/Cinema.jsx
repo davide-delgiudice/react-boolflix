@@ -53,9 +53,13 @@ const Cinema = () => {
         return flags[languageMovies] ? flags[languageMovies] : languageMovies;
     };
 
-    // useEffect(() => {
-    //     searchMedia();
-    // }, []);
+    const starVote = (vote) =>{
+        const stars = Math.ceil(vote/2); 
+        const fullStars = Array(stars).fill(<i className="fa-solid fa-star"></i>);
+        const emptyStars = Array(5 - stars).fill(<i className="fa-regular fa-star"></i>);
+        
+        return [...fullStars, ...emptyStars];
+    };
 
     return (
         <>
