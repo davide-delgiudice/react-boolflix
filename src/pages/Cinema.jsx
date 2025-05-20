@@ -10,6 +10,7 @@ const Cinema = () => {
     const myApi = "322517280b230da9724d683b9cf1693e";
     
     const searchMovies = () => {
+        e.preventDefault();
 
         axios.get('https://api.themoviedb.org/3/search/movie',
             {
