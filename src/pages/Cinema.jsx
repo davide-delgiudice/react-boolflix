@@ -116,7 +116,7 @@ const Cinema = () => {
                                     <span>{serie.original_language}</span>
                                 )}
                             </p>
-                            <p>Voto: {serie.vote_average}</p>
+                            <p>Voto: {starVote(serie.vote_average)}</p>
                         </div>
                     ))}
                 </div>
