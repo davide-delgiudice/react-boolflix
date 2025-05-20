@@ -9,12 +9,40 @@ const Cinema = () => {
 
     const myApi = "322517280b230da9724d683b9cf1693e";
     
-    const getMovies = () => {
-        axios.get('')
-    }
+    const searchMovies = () => {
+
+        axios.get('https://api.themoviedb.org/3/search/movie',
+            {
+                params: {
+                    api_key: myApi,
+                    query: query,
+                },
+            }).then((resp) =>{
+                setMovies(resp.data);
+            });
+        };
 
   return (
-    <div></div>
+    <>
+        <header>
+            <div>
+                <form action="">
+                    <div>
+                        <label htmlFor=""></label>
+                        <input type="text" />
+                    </div>
+                    <div>
+                        <button>
+                            Cerca
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </header>
+        <main>
+            
+        </main>
+    </>
   )
 }
 
