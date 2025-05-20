@@ -5,6 +5,7 @@ import axios from "axios"
 const Cinema = () => {
 
     const [movies, setMovies] = useState([]);
+    const [series, setSeries] = useState([]);
     const [query, setQuery] = useState("");
 
     const myApi = "322517280b230da9724d683b9cf1693e";
@@ -16,6 +17,7 @@ const Cinema = () => {
 
         e.preventDefault();
 
+        // ricerca per i film
         axios.get('https://api.themoviedb.org/3/search/movie',
             {
                 params: {
@@ -25,14 +27,26 @@ const Cinema = () => {
             }).then((resp) => {
                 setMovies(resp.data.results);
             });
+        
+        // ricerca per le serie
+        axios.get('https://api.themoviedb.org/3/search/tv',
+            {
+                params: {
+                    api_key: myApi,
+                    query: query,
+                },
+            }).then((resp) => {
+                setSeries(resp.data.results);
+            });
     };
 
     const showFlags = (languageMovies) => {
         const flags = {
             it: "fi fi-it",
             en: "fi fi-us",
-            jp: "fi fi-jp",
+            ja: "fi fi-jp",
             es: "fi fi-es",
+            fr: "fi fi-fr",
         };
 
         return flags[languageMovies] ? flags[languageMovies] : languageMovies;
