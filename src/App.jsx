@@ -1,12 +1,12 @@
 import { useState } from 'react'
 
-import DefaultLayout from './layouts/DefaultLayout'
+import MainPage from './pages/MainPage'
 
 function App() {
 
   return (
     <>
-      <DefaultLayout />
+      <MainPage />
     </>
   )
 }
