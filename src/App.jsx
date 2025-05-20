@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import MainPage from './pages/MainPage'
+import Cinema from './pages/Cinema'
 
 function App() {
 
