@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 
 const Cinema = () => {
-
+    
     const [movies, setMovies] = useState([]);
     const [series, setSeries] = useState([]);
     const [query, setQuery] = useState("");
@@ -64,23 +64,28 @@ const Cinema = () => {
     return (
         <>
             <header>
-                <div>
-                    <h1>BOOLFIX</h1>
-                    <form action="">
-                        <div>
-                            <input
-                                type="text"
-                                placeholder="Cerca un film o una serie..."
-                                value={query}
-                                onChange={(e) => setQuery(e.target.value)}
-                            />
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-12 head-bar py-2">
+                            <h1>BOOLFIX</h1>
+                            <form className="d-flex gap-3 align-items-center">
+                                <div>
+                                    <input
+                                        className="input-box"
+                                        type="text"
+                                        placeholder="Cerca un film o una serie..."
+                                        value={query}
+                                        onChange={(e) => setQuery(e.target.value)}
+                                    />
+                                </div>
+                                <div className="btn-box">
+                                    <button className="btn btn-danger rounded-0" onClick={searchMedia}>
+                                        Cerca
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-                        <div>
-                            <button onClick={searchMedia}>
-                                Cerca
-                            </button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </header>
             <main>

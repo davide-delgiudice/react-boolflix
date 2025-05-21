@@ -1,1 +1,18 @@
+body{
+    font-family: "Roboto", sans-serif;
+}
 
+header{
+    background-color: black;
+}
+
+.head-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1{
+    color: red;
+    margin: 0px;
+}
