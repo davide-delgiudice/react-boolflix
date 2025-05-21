@@ -27,6 +27,10 @@ h2{
     overflow: hidden;
 }
 
+.card-img img{
+    width: 100%;
+}
+
 .card-info{
     position: absolute;
     color: white;
