@@ -24,6 +24,7 @@ h2{
 
 .card{
     position: relative;
+    overflow: hidden;
 }
 
 .card-info{
@@ -33,7 +34,8 @@ h2{
     height: 100%;
     opacity: 0;
     transition: opacity 0.3s;
-    padding: 10px
+    padding: 10px;
+    overflow-y: auto;
 }
 
 .card-info .fi{

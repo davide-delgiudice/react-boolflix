@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 
 const Cinema = () => {
-    
+
     const [movies, setMovies] = useState([]);
     const [series, setSeries] = useState([]);
     const [query, setQuery] = useState("");
@@ -28,7 +28,7 @@ const Cinema = () => {
             }).then((resp) => {
                 setMovies(resp.data.results);
             });
-        
+
         // ricerca per le serie
         axios.get('https://api.themoviedb.org/3/search/tv',
             {
@@ -54,14 +54,14 @@ const Cinema = () => {
     };
 
     const starVote = (vote) => {
-        const stars = Math.ceil(vote/2); 
+        const stars = Math.ceil(vote / 2);
         const fullStars = Array.from({ length: stars }, (elem, index) => (
             <i key={`full-${index}`} className="fa-solid fa-star"></i>
         ));
         const emptyStars = Array.from({ length: 5 - stars }, (elem, index) => (
             <i key={`empty-${index}`} className="fa-regular fa-star"></i>
         ));
-        
+
         return [...fullStars, ...emptyStars];
     };
 
@@ -95,37 +95,35 @@ const Cinema = () => {
             <main>
                 <div className="container">
                     <div className="row">
-                        <div className="col-12 col-md-6 col-lg-3 d-flex">
-                            {movies.map((movie) => (
-                                <div key={movie.id}>
-                                    <div className="card rounded-0">
-                                        <div className="card-header text-center bg-dark">
-                                            <h2>MOVIE</h2>
-                                        </div>
-                                        <div className="card-img">
-                                            <img src={`${imgUrl}${movie.poster_path}`} alt={movie.title} />
-                                        </div>
-                                        <div className="card-info">
-                                            <h3>Titolo: {movie.title}</h3>
-                                            <p>Titolo originale: {movie.original_title}</p>
-                                            <p>
-                                                Lingua originale:
-                                                {showFlags(movie.original_language).includes("fi") ? (
-                                                    <span className={showFlags(movie.original_language)}></span>
-                                                ) : (
-                                                    <span>{movie.original_language}</span>
-                                                )}
-                                            </p>
-                                            <p>Voto: {starVote(movie.vote_average)}</p>
-                                            <p>Overview: {movie.overview}</p>
-                                        </div>
+                        {movies.map((movie) => (
+                            <div className="col-12 col-md-6 col-lg-3" key={movie.id}>
+                                <div className="card rounded-0 my-4">
+                                    <div className="card-header text-center bg-dark">
+                                        <h2>MOVIE</h2>
+                                    </div>
+                                    <div className="card-img">
+                                        <img src={`${imgUrl}${movie.poster_path}`} alt={movie.title} className="img-fluid" />
+                                    </div>
+                                    <div className="card-info">
+                                        <h3>Titolo: {movie.title}</h3>
+                                        <p>Titolo originale: {movie.original_title}</p>
+                                        <p>
+                                            Lingua originale:
+                                            {showFlags(movie.original_language).includes("fi") ? (
+                                                <span className={showFlags(movie.original_language)}></span>
+                                            ) : (
+                                                <span>{movie.original_language}</span>
+                                            )}
+                                        </p>
+                                        <p>Voto: {starVote(movie.vote_average)}</p>
+                                        <p>Overview: {movie.overview}</p>
                                     </div>
                                 </div>
-                            ))}
-                        </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
-                <div>
+                {/* <div>
                     {series.map((serie) => (
                         <div key={serie.id}>
                             <h2>TV SERIES</h2>
@@ -144,7 +142,7 @@ const Cinema = () => {
                             <p>Overview: {serie.overview}</p>
                         </div>
                     ))}
-                </div>
+                </div> */}
             </main>
         </>
     )
