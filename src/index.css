@@ -29,8 +29,22 @@ h2{
 .card-info{
     position: absolute;
     color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
+    padding: 10px
+}
+
+.card-info .fi{
+    margin-left: 5px;
 }
 
 .card-info .fa-star{
     color: rgb(255, 217, 0);
+}
+
+.card:hover .card-info{
+    opacity: 1;
+    cursor: alias;
 }

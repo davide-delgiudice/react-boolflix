@@ -106,7 +106,7 @@ const Cinema = () => {
                                             <img src={`${imgUrl}${movie.poster_path}`} alt={movie.title} />
                                         </div>
                                         <div className="card-info">
-                                            <h3>{movie.title}</h3>
+                                            <h3>Titolo: {movie.title}</h3>
                                             <p>Titolo originale: {movie.original_title}</p>
                                             <p>
                                                 Lingua originale:
@@ -117,6 +117,7 @@ const Cinema = () => {
                                                 )}
                                             </p>
                                             <p>Voto: {starVote(movie.vote_average)}</p>
+                                            <p>Overview: {movie.overview}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -140,6 +141,7 @@ const Cinema = () => {
                                 )}
                             </p>
                             <p>Voto: {starVote(serie.vote_average)}</p>
+                            <p>Overview: {serie.overview}</p>
                         </div>
                     ))}
                 </div>
