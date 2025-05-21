@@ -93,29 +93,43 @@ const Cinema = () => {
                 </div>
             </header>
             <main>
-                <div>
-                    {movies.map((movie) => (
-                        <div key={movie.id}>
-                            <img src={`${imgUrl}${movie.poster_path}`} alt={movie.title} />
-                            <h2>{movie.title}</h2>
-                            <p>Titolo originale: {movie.original_title}</p>
-                            <p>
-                                Lingua originale:
-                                {showFlags(movie.original_language).includes("fi") ? (
-                                    <span className={showFlags(movie.original_language)}></span>
-                                ) : (
-                                    <span>{movie.original_language}</span>
-                                )}
-                            </p>
-                            <p>Voto: {starVote(movie.vote_average)}</p>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12 col-md-6 col-lg-3 d-flex">
+                            {movies.map((movie) => (
+                                <div key={movie.id}>
+                                    <div className="card rounded-0">
+                                        <div className="card-header text-center bg-dark">
+                                            <h2>MOVIE</h2>
+                                        </div>
+                                        <div className="card-img">
+                                            <img src={`${imgUrl}${movie.poster_path}`} alt={movie.title} />
+                                        </div>
+                                        <div className="card-info">
+                                            <h3>{movie.title}</h3>
+                                            <p>Titolo originale: {movie.original_title}</p>
+                                            <p>
+                                                Lingua originale:
+                                                {showFlags(movie.original_language).includes("fi") ? (
+                                                    <span className={showFlags(movie.original_language)}></span>
+                                                ) : (
+                                                    <span>{movie.original_language}</span>
+                                                )}
+                                            </p>
+                                            <p>Voto: {starVote(movie.vote_average)}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
                 </div>
                 <div>
                     {series.map((serie) => (
                         <div key={serie.id}>
+                            <h2>TV SERIES</h2>
                             <img src={`${imgUrl}${serie.poster_path}`} alt={serie.title} />
-                            <h2>{serie.name}</h2>
+                            <h3>{serie.name}</h3>
                             <p>Titolo originale: {serie.original_name}</p>
                             <p>
                                 Lingua originale:

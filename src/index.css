@@ -17,3 +17,20 @@ h1{
     color: red;
     margin: 0px;
 }
+
+h2{
+    color: red;
+}
+
+.card{
+    position: relative;
+}
+
+.card-info{
+    position: absolute;
+    color: white;
+}
+
+.card-info .fa-star{
+    color: rgb(255, 217, 0);
+}
