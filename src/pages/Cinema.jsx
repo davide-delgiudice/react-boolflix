@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 import axios from "axios"
 
@@ -89,41 +89,51 @@ const Cinema = () => {
                 </div>
             </header>
             <main>
-                <div>
-                    {movies.map((movie) => (
-                        <div key={movie.id}>
-                            <img src={`${imgUrl}${movie.poster_path}`} alt={movie.title} />
-                            <h2>{movie.title}</h2>
-                            <p>Titolo originale: {movie.original_title}</p>
-                            <p>
-                                Lingua originale:
-                                {showFlags(movie.original_language).includes("fi") ? (
-                                    <span className={showFlags(movie.original_language)}></span>
-                                ) : (
-                                    <span>{movie.original_language}</span>
-                                )}
-                            </p>
-                            <p>Voto: {starVote(movie.vote_average)}</p>
+                {/* film */}
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12 col-md-6 col-lg-4">
+                            {movies.map((movie) => (
+                                <div key={`movie-${movie.id}`}>
+                                    <img src={`${imgUrl}${movie.poster_path}`} alt={movie.title} />
+                                    <h2>{movie.title}</h2>
+                                    <p>Titolo originale: {movie.original_title}</p>
+                                    <p>
+                                        Lingua originale:
+                                        {showFlags(movie.original_language).includes("fi") ? (
+                                            <span className={showFlags(movie.original_language)}></span>
+                                        ) : (
+                                            <span>{movie.original_language}</span>
+                                        )}
+                                    </p>
+                                    <p>Voto: {starVote(movie.vote_average)}</p>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
                 </div>
-                <div>
-                    {series.map((serie) => (
-                        <div key={serie.id}>
-                            <img src={`${imgUrl}${serie.poster_path}`} alt={serie.title} />
-                            <h2>{serie.name}</h2>
-                            <p>Titolo originale: {serie.original_name}</p>
-                            <p>
-                                Lingua originale:
-                                {showFlags(serie.original_language).includes("fi") ? (
-                                    <span className={showFlags(serie.original_language)}></span>
-                                ) : (
-                                    <span>{serie.original_language}</span>
-                                )}
-                            </p>
-                            <p>Voto: {starVote(serie.vote_average)}</p>
+                {/* serie tv */}
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12 col-6 col-4">
+                            {series.map((serie) => (
+                                <div key={`serie-${serie.id}`}>
+                                    <img src={`${imgUrl}${serie.poster_path}`} alt={serie.title} />
+                                    <h2>{serie.name}</h2>
+                                    <p>Titolo originale: {serie.original_name}</p>
+                                    <p>
+                                        Lingua originale:
+                                        {showFlags(serie.original_language).includes("fi") ? (
+                                            <span className={showFlags(serie.original_language)}></span>
+                                        ) : (
+                                            <span>{serie.original_language}</span>
+                                        )}
+                                    </p>
+                                    <p>Voto: {starVote(serie.vote_average)}</p>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
                 </div>
             </main>
         </>
